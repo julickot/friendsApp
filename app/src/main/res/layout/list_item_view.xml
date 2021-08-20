@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="person"
+            type="com.julickot.friendsapp.data.User" />
+        <variable
+            name="handler"
+            type="com.julickot.friendsapp.ui.UsersListItemHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/two_line_listitem_height"
+        android:padding="@dimen/spacing_16"
+        android:onClick="@{()-> handler.onClick(person)}">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{person.name}"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            app:layout_constraintBottom_toTopOf="@+id/email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:lineHeight="@dimen/listitem_first_line_height"
+            android:maxLines="1"
+            tools:text="My Name" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{person.email}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:lineHeight="@dimen/listitem_seconnd_line_height"
+            tools:text="E-mail" />
+
+        <TextView
+            android:id="@+id/isActive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/listitem_meta_left_margin"
+            android:text='@{ person.active? @string/status_active : @string/status_not_active }'
+            app:layout_constraintBaseline_toBaselineOf="@+id/name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/name"
+            tools:text=" active " />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

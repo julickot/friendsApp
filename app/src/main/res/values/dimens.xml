@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="general_margin">16dp</dimen>
+
+    <dimen name="spacing_16">16dp</dimen>
+    <dimen name="spacing_8">8dp</dimen>
+
+    <dimen name="two_line_listitem_height">72dp</dimen>
+    <dimen name="listitem_meta_left_margin">28dp</dimen>
+    <dimen name="listitem_first_line_height">28dp</dimen>
+    <dimen name="listitem_seconnd_line_height">20dp</dimen>
+
+
+</resources>

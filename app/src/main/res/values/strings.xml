@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">FriendsApp</string>
+    <string name="list_fragment_title">Persons</string>
+    <string name="detail_fragment_title">Person\'s details</string>
+
+    <string name="status_active">active</string>
+    <string name="status_not_active">not active</string>
+
+    <string name="from_date_format">yyyy-MM-dd\'T\'HH:mm:ssZZ</string>
+    <string name="to_date_format">HH:mm dd.MM.yy</string>
+
+    <string name="friend_list_title">Friends list</string>
+    <string name="field_company">Company</string>
+    <string name="field_email">E-mail</string>
+    <string name="field_phone">Phone</string>
+    <string name="field_address">Address</string>
+    <string name="field_age">Age</string>
+    <string name="field_gender">Gender</string>
+    <string name="field_eye">Eye color</string>
+    <string name="field_fruit">Favorite fruit</string>
+    <string name="field_registered">Registration date</string>
+    <string name="field_location">Location</string>
+</resources>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="user"
+            type="com.julickot.friendsapp.data.User" />
+        <variable
+            name="handler"
+            type="com.julickot.friendsapp.ui.details.DetailViewModel" />
+    </data>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/spacing_16"
+            android:layout_marginTop="@dimen/spacing_16"
+            android:text="@{user.name}"
+            android:textAppearance="?attr/textAppearanceHeadline3"
+            tools:text="Name" />
+
+        <TableLayout
+            android:layout_margin="@dimen/spacing_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="@string/field_company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/fieldCaption"
+                    android:layout_column="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{user.company}"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    tools:text="Company"
+                    android:layout_column="2"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/spacing_16">
+                <TextView
+                    android:text="@string/field_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/fieldCaption"
+                    android:layout_column="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()-> handler.onEmailClick(user.email)}"
+                    android:text="@{user.email}"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    tools:text="user@mail.com"
+                    android:layout_column="2"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/spacing_16">
+                <TextView
+                    android:text="@string/field_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/fieldCaption"
+                    android:layout_column="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()-> handler.onPhoneClick(user.phone)}"
+                    android:text="@{user.phone}"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    tools:text="+7-(911)-111-1111"
+                    android:layout_column="2"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/spacing_16">
+                <TextView
+                    android:text="@string/field_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/fieldCaption"
+                    android:layout_column="1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{user.address}"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:layout_weight="1"
+                    android:maxLines="3"
+                    android:layout_column="2"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/spacing_16">
+                <TextView
+                    android:text="@string/field_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/fieldCaption"
+                    android:layout_column="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(user.age)}"
+                    tools:text="25"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:layout_column="2"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/spacing_16">
+                <TextView
+                    android:text="@string/field_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/fieldCaption"
+                    android:layout_column="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{user.gender}"
+                    tools:text="25"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:layout_column="2"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/spacing_16">
+                <TextView
+                    android:text="@string/field_eye"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/fieldCaption"
+                    android:layout_column="1" />
+
+                <com.julickot.friendsapp.ui.details.ColorIndicatorView
+                    android:id="@+id/eyeColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_gravity="start|center_vertical"
+                    app:colorName="@{user.eyeColor}" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/spacing_16">
+                <TextView
+                    android:text="@string/field_fruit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/fieldCaption"
+                    android:layout_column="1" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+
+                    android:layout_column="2"
+                    android:layout_gravity="start|center_vertical"
+                    app:imageByFruit="@{user.favoriteFruit}" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/spacing_16">
+                <TextView
+                    android:text="@string/field_registered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/fieldCaption"
+                    android:layout_column="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{user.registered}"
+                    app:fromDateFormat="@{@string/from_date_format}"
+                    app:toDateFormat="@{@string/to_date_format}"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:layout_column="2"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/spacing_16">
+                <TextView
+                    android:text="@string/field_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/fieldCaption"
+                    android:layout_column="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(user.latitude) + ' ' + String.valueOf(user.longitude)}"
+                    android:onClick="@{()-> handler.onLocationClick(user.latitude, user.longitude, user.name)}"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:layout_column="2"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_16">
+                <TextView
+                    android:text="@{user.about}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:layout_span="2" />
+            </TableRow>
+
+        </TableLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/friend_list_title"
+            android:layout_marginStart="@dimen/spacing_16"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            />
+        <FrameLayout
+            android:id="@+id/child_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
